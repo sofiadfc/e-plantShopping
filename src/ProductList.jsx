@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ProductList.css';
 import CartItem from './CartItem';
-import addItem from '.CartSlice.jsx';
+import addItem from './CartSlice.jsx';
 
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
@@ -294,7 +294,7 @@ function ProductList({ onHomeClick }) {
                                     <img className="product-image" src={plant.image} alt={plant.name}/>
                                     <div className="product-title">{plant.name}</div>
                                     <div className="product-description">{plant.description}</div>
-                                    <div className="product-cost">${plant.cost}</div>
+                                    <div className="product-cost">{plant.cost}</div>
                                     <button className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
                                 </div>
                             ))}
