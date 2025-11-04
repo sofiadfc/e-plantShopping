@@ -9,6 +9,7 @@ const CartItem = ({ onContinueShopping }) => {
 
   const calculateTotalAmount = (cart) => {
     let total = 0;
+    if (!cart || cart.length === 0) return total;
     cart.forEach((item) => {
         const quantity = item.quantity;
         const cost = parseFloat(item.cost.substring(1));
@@ -72,7 +73,7 @@ const CartItem = ({ onContinueShopping }) => {
       <div className="continue_shopping_btn">
         <button className="get-started-button" onClick={(e) => handleContinueShopping(e)}>Continue Shopping</button>
         <br />
-        <button className="get-started-button1">Checkout</button>
+        <button className="get-started-button1" onClick={(e) => handleCheckoutShopping(e)}>Checkout</button>
       </div>
     </div>
   );
