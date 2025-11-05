@@ -6,6 +6,7 @@ import './CartItem.css';
 const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
+  const addedToCart = useSelector(state => state.cart.addedToCart);
 
   const calculateTotalAmount = (cart) => {
     let total = 0;
@@ -50,7 +51,7 @@ const CartItem = ({ onContinueShopping }) => {
 
   return (
     <div className="cart-container">
-      <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
+      <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount(cart)}</h2>
       <div>
         {cart.map(item => (
           <div className="cart-item" key={item.name}>
